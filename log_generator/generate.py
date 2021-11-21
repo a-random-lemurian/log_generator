@@ -15,6 +15,9 @@ from jsonschema import validate, ValidationError
 
 
 class Generator:
+    """
+    Generator class for log creation.
+    """
     def __init__(self, conf_dir: str, truncate: bool = False):
         self.conf_dir = conf_dir.rstrip("/")
         self.events = []
@@ -67,19 +70,19 @@ class Generator:
                             target=self.generate_log_entry, args=(event, config)
                         ).start()
                         self.events.append(event)
-                    except ValidationError as e:
+                    except ValidationError as err:
                         self.logger.critical(
                             "Invalid configuration file: {:s}".format(config_file)
                         )
-                        self.logger.critical(e)
+                        self.logger.critical(err)
 
     def stop(self) -> None:
         self.running = False
         self.stop_generating()
 
     def stop_generating(self) -> None:
-        for e in self.events:
-            e.set()
+        for event in self.events:
+            event.set()
 
     @staticmethod
     def gather_configs(config_dir: str):
@@ -201,8 +204,8 @@ class Generator:
                 'Writing %4d logs for "%s" (%s)'
                 % (config["amount"], config["name"], config["file"])
             )
-            for ts in self.get_timestamps(config, datetime.datetime.utcnow()):
-                config["timestamp"] = ts
+            for timestamp in self.get_timestamps(config, datetime.datetime.utcnow()):
+                config["timestamp"] = timestamp
                 values = {
                     field: self.next_value(config, field) for field in config["fields"]
                 }
@@ -250,8 +253,8 @@ def main() -> None:
     # Run the generator
     try:
         generator.run()
-    except FileNotFoundError as e:
-        generator.logger.critical(e)
+    except FileNotFoundError as err:
+        generator.logger.critical(err)
         sys.exit(1)
 
 
