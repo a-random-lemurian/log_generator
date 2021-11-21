@@ -78,8 +78,8 @@ class Generator:
         self.stop_generating()
 
     def stop_generating(self) -> None:
-        for e in self.events:
-            e.set()
+        for event in self.events:
+            event.set()
 
     @staticmethod
     def gather_configs(config_dir: str):
