@@ -8,11 +8,13 @@ import signal
 import sys
 import threading
 import time
+import faker
 from typing import List, Union
 
 import yaml
 from jsonschema import validate, ValidationError
 
+fake = faker.Faker()
 
 class Generator:
     """
