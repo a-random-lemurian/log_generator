@@ -201,8 +201,8 @@ class Generator:
                 'Writing %4d logs for "%s" (%s)'
                 % (config["amount"], config["name"], config["file"])
             )
-            for ts in self.get_timestamps(config, datetime.datetime.utcnow()):
-                config["timestamp"] = ts
+            for timestamp in self.get_timestamps(config, datetime.datetime.utcnow()):
+                config["timestamp"] = timestamp
                 values = {
                     field: self.next_value(config, field) for field in config["fields"]
                 }
