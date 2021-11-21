@@ -6,7 +6,7 @@ def readme():
         return f.read()
 
 
-setup(name='lem_log_generator',
+setup(name='lemloggen',
       version='1.0.2',
       description='Generates dummy logs based on configuration files',
       long_description=readme(),
