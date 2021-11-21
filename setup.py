@@ -6,7 +6,7 @@ def readme():
         return f.read()
 
 
-setup(name='log_generator',
+setup(name='lem_log_generator',
       version='1.0.2',
       description='Generates dummy logs based on configuration files',
       long_description=readme(),
@@ -17,8 +17,7 @@ setup(name='log_generator',
           'Programming Language :: Python :: 3.7',
           'Operating System :: OS Independent',
       ],
-      author='Peter Scopes',
-      author_email='peter.scopes@nccgroup.com',
+      author='Lemuria',
       license='MIT',
       packages=find_packages(),
       install_requires=[
