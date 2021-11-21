@@ -23,6 +23,7 @@ setup(name='lem_log_generator',
       install_requires=[
           'PyYAML>=5.1.1',
           'jsonschema>=3.0.0',
+          'faker>=9.5.1'
       ],
       entry_points={
           'console_scripts': ['log-generator=log_generator.generate:main']
