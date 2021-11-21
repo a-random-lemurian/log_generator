@@ -153,3 +153,9 @@ Custom log:
             weight: 0.2
           - option: green
             weight: 0.6
+
+^^^^^^^
+Lemuria's Changes
+^^^^^^^
+This is a modified version of pdscopes' log generator, now with support
+for the Faker library!
