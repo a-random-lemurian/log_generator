@@ -76,6 +76,8 @@ Chance (``chance``)
 IP Address (``ip``)
     A randomly generated IP address.
 
+Fake name (``fakename``)
+    A random name generated using Faker
 
 ^^^^^^^^
 Examples

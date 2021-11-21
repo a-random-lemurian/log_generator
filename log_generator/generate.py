@@ -184,6 +184,9 @@ class Generator:
         elif field["type"] == "ip":
             return ".".join(str(random.randint(0, 255)) for _ in range(4))
 
+        elif field["type"] == "fakename":
+            return fake.name()
+
         else:
             return None
 
