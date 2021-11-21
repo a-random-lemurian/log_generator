@@ -67,11 +67,11 @@ class Generator:
                             target=self.generate_log_entry, args=(event, config)
                         ).start()
                         self.events.append(event)
-                    except ValidationError as e:
+                    except ValidationError as err:
                         self.logger.critical(
                             "Invalid configuration file: {:s}".format(config_file)
                         )
-                        self.logger.critical(e)
+                        self.logger.critical(err)
 
     def stop(self) -> None:
         self.running = False
@@ -250,8 +250,8 @@ def main() -> None:
     # Run the generator
     try:
         generator.run()
-    except FileNotFoundError as e:
-        generator.logger.critical(e)
+    except FileNotFoundError as err:
+        generator.logger.critical(err)
         sys.exit(1)
 
 
