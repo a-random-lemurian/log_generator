@@ -109,3 +109,6 @@ venv.bak/
 # log_generator configuration files
 configs/
 logs/
+
+# VSCode
+.vscode/
