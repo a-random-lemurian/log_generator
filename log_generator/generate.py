@@ -15,6 +15,9 @@ from jsonschema import validate, ValidationError
 
 
 class Generator:
+    """
+    Generator class for log creation.
+    """
     def __init__(self, conf_dir: str, truncate: bool = False):
         self.conf_dir = conf_dir.rstrip("/")
         self.events = []
